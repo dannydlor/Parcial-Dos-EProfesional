@@ -1,0 +1,59 @@
+{% extends 'layouts/base.html' %} 
+{% block titulo %} listar espacios {% endblock %}
+
+{% block contenido %}
+<nav class=" navbar-bg ">
+    <div class="row justify-content-center">
+        <img src="/static/img/logo2.png" class="logo" alt="">
+    </div>
+</nav>
+<section>
+    <div class="container-fluid menu">
+        <div class="row">
+            <div class="col-md-3 ">
+                <div class="list-group ">
+                    <label href="#" class="list-group-item menu">
+                        <i class="fas fa-bars"></i> Menú
+                    </label>
+                    <a href="/estudiante" class="list-group-item list-group-item-action">estudiantes</a>
+                    <a href="#Productos" class="list-group-item list-group-item-action">espacios academicos</a>
+                    <a href="/sesiones"  class="list-group-item list-group-item-action">sesiones</a>
+                </div>
+            </div>
+            <!-- contenido -->
+            <div class="col-md-9 contenido">  
+                <h3 class="text-center card-titulo">Mis Materias</h3> 
+                <div class="row justify-content-end pr-3 ">
+                    <a href="/space/crear" class="btn btn-boton " >Nuevo</a>
+                </div>
+                <hr>
+                <table class="table">
+                    <thead>
+                      <tr>
+                        <th scope="col">Nombre</th>
+                        <th scope="col">Semeste</th>
+                        <th scope="col">Acciones</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                        {% for space in spaces %}
+                        <tr>
+                            <td>{{space[1]}}</td>
+                            <td>{{space[2]}}</td>
+                            <td>
+                                <a href="/space/editar/{{space[0]}}" class="btn btn-boton2">Editar</a>
+                                <a href="/space/eliminar/{{space[0]}}" class="btn btn-danger" >Borrar</a>
+                            </td>
+                        </tr>
+                        {%endfor%}
+                      
+                    </tbody>
+                    
+                  </table>
+            </div>
+            
+        </div>
+    </div>
+</section>
+
+{% endblock %}

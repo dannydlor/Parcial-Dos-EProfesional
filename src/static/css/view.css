@@ -1,0 +1,126 @@
+body{
+    background-color:#232A36;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    
+}
+.menu{
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+.row {
+    margin-right: 0px; 
+    margin-left: 0px;
+}
+footer{
+    padding-top: 40px;
+    padding: 35px;
+    color: white;
+    background-color: #0894aa;
+}
+.navbar-bg{
+    background-color:#F0F0D8 ;
+    padding-bottom: 20px;
+
+}
+
+img.logo{
+    text-align: center;
+    max-width: 30%;
+    height: auto;
+    margin-bottom: 8px;
+
+}
+/* el  button select */
+.caja {
+    margin:20px auto 40px auto;	
+    border:1px solid #d9d9d9;
+    height:30px;
+    overflow: hidden;
+    width: 230px;
+    position:relative;
+ }
+ select {
+    background: transparent;
+    border: none;
+    font-size: 14px;
+    height: 30px;
+    padding: 5px;
+    width: 250px;
+ }
+ select:focus{ outline: none;}
+ 
+ .caja::after{
+     content:"\025be";
+     display:table-cell;
+     padding-top:7px;
+     text-align:center;
+     width:30px;
+     height:30px;
+     background-color:#d9d9d9;
+     position:absolute;
+     top:0;
+     right:0px;	
+     pointer-events: none;
+ }
+.sesiones{
+    background-color:#F0F0D8;
+    padding: 10px
+}
+.section{
+    padding: 10px;
+}
+.conten-editar{
+    background-image: url(../img/812.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.form-editar{
+    background-color: #d9d9d9;
+    padding: 20px;
+    margin: 50px 0px 50px 0px;
+    border-radius: 10px 10px 10px 10px;
+}
+.table{
+    background-color: #F0F0D8;
+    border-radius: 10px 10px 10px 10px;
+}
+.card{
+
+    border-radius: 10px 10px 10px 10px;
+ 
+}
+.card-body{
+    background-color: #0abedb;
+    border-radius: 10px 10px 10px 10px;
+}
+.card-titulo {
+    color: whitesmoke;
+}
+.card-subtitle{
+    color:#29156B ;
+}
+
+img{
+    max-width: 25%;
+    height: auto;
+}
+.btn-boton{
+    background-color:#0894AA ;
+    color:#F0F0D8;
+} 
+.btn-boton:hover{
+    opacity: 90%;
+    color: whitesmoke
+}
+.btn-boton2{
+    background-color:#232A36 ;
+    color:#F0F0D8;
+} 
+.btn-boton2:hover{
+    opacity: 90%;
+    color: whitesmoke
+}
+hr{
+    border-top: 1px solid white;
+    opacity: 70%;
+}

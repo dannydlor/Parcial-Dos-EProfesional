@@ -1,0 +1,55 @@
+{% extends 'layouts/base.html' %} 
+{% block titulo %} Login {% endblock %}
+
+{% block contenido %}
+<nav class=" navbar-bg editar">
+    <div class="row justify-content-center">
+        <img src="/static/img/logo2.png" class="logo" alt="">
+    </div>
+</nav>
+<div class="conten-editar section">
+    <div class="row justify-content-center">
+        <div class="col-md-4 form-editar">
+            <div>
+                <h3 class="text-center mb-5">Editar Estudiante</h3>
+                <hr>
+            </div>
+            <form action="{{ url_for('actualizar_estudiante') }}" method="POST">
+                <div class="form-group">
+                    <input type="hidden" class="form-control" name="id_" id="id_" placeholder="{{estudiante[0][0]}}" value="{{estudiante[0][0]}}">
+                </div>
+                <div class="form-row">
+                    <div class="form-group mr-2">
+                        <label >Identificacion</label>
+                        <input type="text" class="form-control" name="Identificacion" id="Identificacion" placeholder="{{estudiante[0][1]}}" value="{{estudiante[0][1]}}">
+                    </div>
+                    <div class="form-group">
+                        <label for="Nombre">Nombre</label>
+                        <input type="text" class="form-control" name="Nombre" id="Nombre" placeholder="{{estudiante[0][2]}}" value="{{estudiante[0][2]}}">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group mr-2">
+                        <label for="Apellido ">Apellido</label>
+                        <input type="text" class="form-control" name="Apellido" id="Apellido" placeholder="{{estudiante[0][3]}}" value="{{estudiante[0][3]}}">
+                    </div>
+                    <div class="form-group">
+                        <label for="Celular">Celular</label>
+                        <input type="text" class="form-control" name="Celular" id="Celular" placeholder="{{estudiante[0][4]}}" value="{{estudiante[0][4]}}">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="Correo">Correo</label>
+                    <input type="email" class="form-control" name="Correo" id="Correo" placeholder="{{estudiante[0][5]}}" value="{{estudiante[0][5]}}">
+                </div>
+                <div class="row justify-content-center">
+                    <button type="submit" class="btn btn-primary mr-3">Submit</button>
+                    <a href="/estudiante" class="btn btn-primary">volver</a>
+                </div>
+            </form>
+        </div>
+    </div>
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,77 @@
+{% extends 'layouts/base.html' %} 
+{% block titulo %} Login {% endblock %}
+
+{% block contenido %}
+<nav class=" navbar-bg ">
+    <div class="row justify-content-center">
+        <img src="/static/img/logo2.png" class="logo" alt="">
+    </div>
+</nav>
+<div class="conten-editar">
+    
+    <div class="row justify-content-center">
+        <div class="col-md-4 form-editar">
+            <div>
+                <h3 class="text-center mb-5">Registra Estudiante</h3>
+                <hr>
+            </div>
+            <form action="{{ url_for('crearStudents') }}" method="POST">
+               <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label >Identificacion</label>
+                        <input type="text" class="form-control" name="Identificacion" id="Identificacion">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="Nombre">Nombre</label>
+                        <input type="text" class="form-control" name="Nombre" id="Nombre">
+                    </div>
+               </div>
+               <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="Apellido">Apellido</label>
+                        <input type="text" class="form-control" name="Apellido" id="Apellido">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="Celular">Celular</label>
+                        <input type="text" class="form-control" name="Celular" id="Celular">
+                    </div>
+               </div>
+                <div class="form-group">
+                    <label for="Correo">Correo</label>
+                    <input type="email" class="form-control" name="Correo" id="Correo">
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <select name="semestre" class="form-control">
+                            <option>Semestre I</option>
+                            <option>Semestre II</option>
+                            <option>Semestre III</option>
+                            <option>Semestre IV</option>
+                            <option>Semestre V</option>
+                            <option>Semestre VI</option>
+                            <option>Semestre VII</option>
+                            <option>Semestre VIII</option>
+                            <option>Semestre IX</option>
+                            <option>Semestre X</option>
+                            
+                        </select>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <select class="form-control" name="espacioacademico">
+                            {% for espacio in espacios%}
+                            <option value="{{espacio[0]}}" >{{espacio[1]}}</option>
+                            {%endfor%}
+                        </select>
+                    </div>
+                </div>
+                <div class="row justify-content-center">
+                    <button type="submit" class="btn btn-boton mr-3">Enviar</button>
+                    <a href="/estudiante" class="btn btn-boton">volver</a>
+                </div>
+            </form>
+        </div>
+    </div>
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,38 @@
+{% extends 'layouts/base.html' %} 
+{% block titulo %} Login {% endblock %}
+
+{% block contenido %}
+
+<div>
+    <nav class=" navbar-bg ">
+            <div class="row justify-content-center">
+                <img src="/static/img/logo2.png" class="logo" alt="">
+            </div>
+    </nav>
+    <section class="contenido">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-4 ">
+                    <div class="list-group ">
+                        <label href="#" class="list-group-item menu">
+                            <i class="fas fa-bars"></i> Menú
+                        </label>
+                        <a href="{{url_for('listaStudents')}}" class="list-group-item list-group-item-action">estudiantes</a>
+                        <a href="{{url_for('listar_space')}}" class="list-group-item list-group-item-action">espacios academicos</a>
+                        <a href="/sesiones"  class="list-group-item list-group-item-action">sesiones</a>
+                    </div>
+                </div>
+                <div class="col-md-8">   
+                    <h2 class = "text-center">Bienvenido</h2> 
+                    <div class="row justify-content-center">
+                        <img src="/static/img/calendar2.png"  alt=""> 
+                    </div>
+                          
+           
+                </div>
+                
+            </div>
+        </div>
+    </section>
+</div>
+{% endblock %}

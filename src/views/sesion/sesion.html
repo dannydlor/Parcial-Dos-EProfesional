@@ -1,0 +1,149 @@
+{% extends 'layouts/base.html' %} 
+{% block titulo %} Login {% endblock %}
+
+{% block contenido %}
+<nav class=" navbar-bg ">
+    <div class="row justify-content-center">
+        <img src="/static/img/logo2.png" class="logo" alt="">
+    </div>
+</nav>
+<section>
+    <div class="container-fluid menu">
+        <div class="row">
+            <div class="col-md-3 ">
+                <div class="list-group ">
+                    <label href="#" class="list-group-item menu">
+                        <i class="fas fa-bars"></i> Menú
+                    </label>
+                    <a href="/estudiante" class="list-group-item list-group-item-action">estudiantes</a>
+                    <a href="/space-academic" class="list-group-item list-group-item-action">espacios academicos</a>
+                    <a href="/sesiones"  class="list-group-item list-group-item-action">sesiones</a>
+                </div>
+            </div>
+            <!-- contenido -->
+            <div class="col-md-9 contenido">  
+                <h3 class="text-center card-titulo ">Mis Seisones</h3>
+                <div class="row justify-content-center">
+                    <img src="static/img/agenda.png" alt="">
+                </div>
+               
+                <div class="row justify-content-end ">
+                    <button type="button" class="btn btn-boton" data-toggle="modal" data-target="#exampleModalCenter">
+                        Agregar
+                    </button>
+                </div>
+                <hr>
+                <div class=" row sesiones">
+                    {% for sesion in sesiones %}
+                    <div>
+                        <a href="/sesiones/materia/{{sesion[0]}}">
+                            <div class="card" style="width: 10rem;">
+                                <div class="card-body">
+                                  <h5 class="card-title text-center card-titulo ">{{sesion[1]}}</h5>
+                                  <h6 class="card-subtitle mb-2 text-center ">{{sesion[2]}}</h6>
+                                  <h6 class="card-subtitle mb-2 text-center  ">{{sesion[3]}}</h6>
+                                  <h5 class="card-title mb-2 text-center card-titulo">{{sesion[4]}}</h5>
+                                 <div class="col-md-12">
+                                    <a href="/sesiones/eliminar/{{sesion[0]}}" class="card-link btn btn-danger mb-2 btn-block">Borrar</a>
+                                 </div>
+                                 <div class="col-md-12">
+                                    <a href="/sesiones/editar/{{sesion[0]}}" class="card-link btn btn-boton2 mb-2 btn-block">Editar</a>
+                                 </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+                    <!-- Button trigger modal -->
+
+                        
+                        <!-- Modal -->
+                        <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-centered" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLongTitle">Nueva sesion</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                                </div>
+                            <form action="{{ url_for('agregarSesion') }}" method="POST">
+                                <div class="modal-body">
+                                
+                                    <div class="form-group">
+                                        <label >Fecha</label>
+                                        <input type="date" class="form-control" name="fecha" id="fecha">
+                                    </div>
+                                    <div class="form-group">
+                                        <label >hora inicio</label>
+                                        <input type="time" class="form-control" name="hora_inicio" id="hora_inicio">
+                                    </div>
+                                    <div class="form-group">
+                                        <label >hora final</label>
+                                        <input type="time" class="form-control" name="hora_final" id="hora_final">
+                                    </div>
+                                    <select class="form-control" name="espacioacademico">
+                                        {% for espacio in espacios%}
+                                        <option >{{espacio[1]}}</option>
+                                        {%endfor%}
+                                    </select>
+                                
+                                </div>
+                                <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                <button type="submit" class="btn btn-primary">Save </button>
+                                </div>
+                            </form>
+                            </div>
+                            </div>
+                        </div>
+
+                        <!-- Modal editar -->
+                        <div class="modal fade" id="exampleModalCenter2" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-centered" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLongTitle">Editar sesion</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                                </div>
+                            <form action="{{ url_for('agregarSesion') }}" method="POST">
+                                <div class="modal-body">
+                                    
+                                    <div class="form-group">
+                                        <label >Fecha</label>
+                                        <input type="date" class="form-control" name="fecha" id="fecha">
+                                    </div>
+                                    <div class="form-group">
+                                        <label >hora inicio</label>
+                                        <input type="time" class="form-control" name="hora_inicio" id="hora_inicio">
+                                    </div>
+                                    <div class="form-group">
+                                        <label >hora final</label>
+                                        <input type="time" class="form-control" name="hora_final" id="hora_final">
+                                    </div>
+                                    <select class="form-control" name="espacioacademico">
+                                        {% for espacio in espacios%}
+                                        <option value="{{espacio[0]}}" >{{espacio[0]}}</option>
+                                        {%endfor%}
+                                    </select>
+                                
+                                </div>
+                                <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                <button type="submit" class="btn btn-primary">Save </button>
+                                </div>
+                            </form>
+                            </div>
+                            </div>
+                        </div>
+                    {%endfor%}
+                </div>
+            </div>
+            
+        </div>
+    </div>
+</section>
+
+{% endblock %}

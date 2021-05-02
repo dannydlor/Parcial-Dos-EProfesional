@@ -1,0 +1,50 @@
+{% extends 'layouts/base.html' %} 
+{% block titulo %} Login {% endblock %}
+
+{% block contenido %}
+<nav class=" navbar-bg editar">
+    <div class="row justify-content-center">
+        <img src="/static/img/logo2.png" class="logo" alt="">
+    </div>
+</nav>
+<div class="conten-editar section">
+    <div class="row justify-content-center">
+        <div class="col-md-4 form-editar">
+            <div>
+                <h3 class="text-center mb-5">Nueva Materia</h3>
+                <hr>
+            </div>
+            <form action="{{ url_for('crear_space') }}" method="POST">
+                
+                    <div class="form-group mr-2">
+                        <label >Materia</label>
+                        <input type="text" class="form-control" name="materia">
+                    </div>
+                    <div class="form-group">
+                        <label for="Nombre">Semestre</label>
+                        <div class="form-group">
+                            <select name="semestre" class="form-control">
+                                <option>Semestre I</option>
+                                <option>Semestre II</option>
+                                <option>Semestre III</option>
+                                <option>Semestre IV</option>
+                                <option>Semestre V</option>
+                                <option>Semestre VI</option>
+                                <option>Semestre VII</option>
+                                <option>Semestre VIII</option>
+                                <option>Semestre IX</option>
+                                <option>Semestre X</option>
+                            </select>
+                        </div>
+                    </div>
+                <div class="row justify-content-center">
+                    <button type="submit" class="btn btn-boton mr-3">Enviar</button>
+                    <a href="/estudiante" class="btn btn-boton">volver</a>
+                </div>
+            </form>
+        </div>
+    </div>
+
+</div>
+
+{% endblock %}

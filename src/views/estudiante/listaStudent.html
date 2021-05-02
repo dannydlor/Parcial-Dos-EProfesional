@@ -1,0 +1,71 @@
+{% extends 'layouts/base.html' %} 
+{% block titulo %} Login {% endblock %}
+
+{% block contenido %}
+
+<div>
+    <nav class=" navbar-bg ">
+            <div class="row justify-content-center">
+                <img src="/static/img/logo2.png" class="logo" alt="">
+            </div>
+    </nav>
+    <section>
+        <div class="container-fluid menu">
+            <div class="row">
+                <div class="col-md-3 ">
+                    <div class="list-group ">
+                        <label href="#" class="list-group-item menu">
+                            <i class="fas fa-bars"></i> Menú
+                        </label>
+                        <a href="/estudiante" class="list-group-item list-group-item-action">estudiantes</a>
+                        <a href="/space-academic" class="list-group-item list-group-item-action">espacios academicos</a>
+                        <a href="/sesiones"  class="list-group-item list-group-item-action">sesiones</a>
+                    </div>
+                </div>
+                <!-- contenido -->
+                <div class="col-md-9 contenido">  
+                    <h3 class="text-center card-titulo">Mi lista de Estudiantes</h3> 
+                    <div class="row justify-content-end pr-3 ">
+                        <a href="/estudiante/crear" class="btn btn-boton " >Nuevo</a>
+                    </div>
+                    <hr>
+                    <table class="table">
+                        <thead>
+                          <tr>
+                    
+                            <th scope="col">CC</th>
+                            <th scope="col">Nombre</th>
+                            <th scope="col">Apellido</th>
+                            <th scope="col">Celular</th>
+                            <th scope="col">Correo</th>
+                            <th scope="col">Asignatura</th>
+                            <th scope="col">Acciones</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                        {% for estudent in estudents %}
+                          <tr>
+                            <td>{{estudent[1]}}</td>
+                            <td>{{estudent[2]}}</td>
+                            <td>{{estudent[3]}}</td>
+                            <td>{{estudent[4]}}</td>
+                            <td>{{estudent[5]}}</td>
+                            <td>{{estudent[7]}}</td>
+                            <td>
+                                <a href="/update/{{estudent[0]}}" class="btn btn-boton2">Editar</a>
+                                <a href="/delete/{{estudent[0]}}" class="btn btn-danger" >Borrar</a>
+                            </td>
+                          </tr>
+                        {% endfor  %}
+                        </tbody>
+                      </table>
+                          
+           
+                </div>
+                
+            </div>
+        </div>
+    </section>
+</div>
+
+{% endblock %}

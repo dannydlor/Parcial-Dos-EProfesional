@@ -1,0 +1,84 @@
+{% extends 'layouts/base.html' %} 
+{% block titulo %} Login {% endblock %}
+
+{% block contenido %}
+<nav class=" navbar-bg ">
+    <div class="row justify-content-center">
+        <img src="/static/img/logo2.png" class="logo" alt="">
+    </div>
+</nav>
+<section>
+    <div class="container-fluid menu">
+        <div class="row">
+            <div class="col-md-3 ">
+                <div class="list-group ">
+                    <label href="#" class="list-group-item menu">
+                        <i class="fas fa-bars"></i> Menú
+                    </label>
+                    <a href="/estudiante" class="list-group-item list-group-item-action">estudiantes</a>
+                    <a href="/space-academic" class="list-group-item list-group-item-action">espacios academicos</a>
+                    <a href="/sesiones"  class="list-group-item list-group-item-action">sesiones</a>
+                </div>
+            </div>
+            <!-- contenido -->
+            <div class="col-md-9 contenido">  
+                <h3 class="text-center card-titulo">Mi lista de Estudiantes</h3> 
+                <table class="table">
+                    <thead>
+                      <tr>
+                
+                        <th scope="col">CC</th>
+                        <th scope="col">Nombre</th>
+                        <th scope="col">Apellido</th>
+                        <th scope="col">Celular</th>
+                        <th scope="col">Asistencia</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                        {% for estudianteSesion in estudianteSesions %}
+                      <tr>
+                        <td>{{estudianteSesion[1]}}</td>
+                        <td>{{estudianteSesion[2]}}</td>
+                        <td>{{estudianteSesion[3]}}</td>
+                        <td>{{estudianteSesion[4]}}</td>
+                        {% if estudianteSesion[5]==1 %}
+                            <td>
+                                <form action="{{id}}" method="POST">
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="inlineRadioOptions" checked id="inlineRadio1" value="{{estudianteSesion[0]}},{{estudianteSesion[5]}},+">
+                                        <label class="form-check-label" for="inlineRadio1">+</label>
+                                      </div>
+                                      <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="{{estudianteSesion[0]}},{{estudianteSesion[5]}},-">
+                                        <label class="form-check-label" for="inlineRadio2">-</label>
+                                      </div>
+                                    <button type="submit" class="btn btn-primary">ok</button>
+                                </form>
+                            </td>
+                        {% else %}
+                            <td>
+                                <form action="{{id}}" method="POST">
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="inlineRadioOptions"  id="inlineRadio1" value="{{estudianteSesion[0]}},{{estudianteSesion[5]}},+">
+                                        <label class="form-check-label" for="inlineRadio1">+</label>
+                                      </div>
+                                      <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="inlineRadioOptions" checked id="inlineRadio2" value="{{estudianteSesion[0]}},{{estudianteSesion[5]}},-">
+                                        <label class="form-check-label" for="inlineRadio2">-</label>
+                                      </div>
+                                    <button type="submit" class="btn btn-primary">ok</button>
+                                </form>
+                            </td>
+                        {% endif %}
+            
+                      </tr>
+                      {%endfor%}
+                    </tbody>
+                  </table>
+            </div>
+            
+        </div>
+    </div>
+</section>
+
+{% endblock %}
